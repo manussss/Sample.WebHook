@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1155B213-029
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Webhook.Api.Client", "src\Sample.Webhook.Api.Client\Sample.Webhook.Api.Client.csproj", "{B372FF06-7E87-4C71-B24B-D731EA3D7E86}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Webhook.Api.Server", "src\Sample.Webhook.Api.Server\Sample.Webhook.Api.Server.csproj", "{9BC21441-8E63-4ACB-B089-3AE29EE6A4E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Webhook.Shared", "src\Sample.Webhook.Shared\Sample.Webhook.Shared.csproj", "{B4BD0533-576E-4BF8-9E7E-60E350AE79EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +21,22 @@ Global
 		{B372FF06-7E87-4C71-B24B-D731EA3D7E86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B372FF06-7E87-4C71-B24B-D731EA3D7E86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B372FF06-7E87-4C71-B24B-D731EA3D7E86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BC21441-8E63-4ACB-B089-3AE29EE6A4E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC21441-8E63-4ACB-B089-3AE29EE6A4E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC21441-8E63-4ACB-B089-3AE29EE6A4E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BC21441-8E63-4ACB-B089-3AE29EE6A4E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4BD0533-576E-4BF8-9E7E-60E350AE79EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4BD0533-576E-4BF8-9E7E-60E350AE79EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4BD0533-576E-4BF8-9E7E-60E350AE79EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4BD0533-576E-4BF8-9E7E-60E350AE79EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B372FF06-7E87-4C71-B24B-D731EA3D7E86} = {1155B213-0292-4731-9A43-EDA61AF010F3}
+		{9BC21441-8E63-4ACB-B089-3AE29EE6A4E0} = {1155B213-0292-4731-9A43-EDA61AF010F3}
+		{B4BD0533-576E-4BF8-9E7E-60E350AE79EB} = {1155B213-0292-4731-9A43-EDA61AF010F3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F390A3E7-31A0-4913-AF13-6DCF911DE944}
