@@ -6,6 +6,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IWebhookService, WebhookService>();
 builder.Services.AddHttpClient();
 builder.Services.AddLogging();
+builder.Services.AddRedisSetup(builder.Configuration);
 
 var app = builder.Build();
 

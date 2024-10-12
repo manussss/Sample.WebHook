@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Sample.Webhook.Infra\Sample.Webhook.Infra.csproj" />
     <ProjectReference Include="..\Sample.Webhook.Shared\Sample.Webhook.Shared.csproj" />
   </ItemGroup>
 

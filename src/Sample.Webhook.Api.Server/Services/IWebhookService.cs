@@ -2,7 +2,7 @@
 
 public interface IWebhookService
 {
-    void Subscribe(SubscriptionRequestModel subscription);
+    Task Subscribe(SubscriptionRequestModel subscription);
     Task PublishMessage(string topic, object message);
-    void Unsubscribe(SubscriptionRequestModel subscription);
+    Task Unsubscribe(SubscriptionRequestModel subscription);
 }

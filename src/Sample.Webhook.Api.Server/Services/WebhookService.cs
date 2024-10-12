@@ -1,27 +1,33 @@
 ﻿namespace Sample.Webhook.Api.Server.Services;
 
-public class WebhookService(IHttpClientFactory httpClientFactory) : IWebhookService
+public class WebhookService(IHttpClientFactory httpClientFactory, IConnectionMultiplexer redis) : IWebhookService
 {
-    private readonly List<SubscriptionRequestModel> _subscriptions = new();
     private readonly HttpClient _httpClient = httpClientFactory.CreateClient();
+    //Using redis to practice, TODO add persistence with sqlserver or aof
+    private readonly IDatabase _database = redis.GetDatabase();
 
-    public void Subscribe(SubscriptionRequestModel subscription)
+    private const string SubscriptionKeyPrefix = "subscriptions:";
+
+    public async Task Subscribe(SubscriptionRequestModel subscription)
     {
-        _subscriptions.Add(subscription);
+        var key = SubscriptionKeyPrefix + subscription.Topic;
+        await _database.SetAddAsync(key, subscription.Callback);
     }
 
-    public void Unsubscribe(SubscriptionRequestModel subscription)
+    public async Task Unsubscribe(SubscriptionRequestModel subscription)
     {
-        _subscriptions.Remove(subscription);
+        var key = SubscriptionKeyPrefix + subscription.Topic;
+        await _database.SetRemoveAsync(key, subscription.Callback);
     }
 
     public async Task PublishMessage(string topic, object message)
     {
-        var subscribedWebhooks = _subscriptions.Where(w => w.Topic == topic);
+        var key = SubscriptionKeyPrefix + topic;
+        var subscribers = await _database.SetMembersAsync(key);
 
-        foreach (var webhook in subscribedWebhooks)
+        foreach (var subscriber in subscribers)
         {
-            await _httpClient.PostAsJsonAsync(webhook.Callback, message);
+            await _httpClient.PostAsJsonAsync(subscriber.ToString(), message);
         }
     }
 }
